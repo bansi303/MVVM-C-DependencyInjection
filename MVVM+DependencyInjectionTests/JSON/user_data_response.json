@@ -1,0 +1,67 @@
+
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Jivan",
+        "last": "Arendse"
+      },
+      "location": {
+        "street": {
+          "number": 3228,
+          "name": "Flanelstraat"
+        },
+        "city": "Wieringerwerf",
+        "state": "Noord-Holland",
+        "country": "Netherlands",
+        "postcode": "3816 TG",
+        "coordinates": {
+          "latitude": "33.6421",
+          "longitude": "-32.8979"
+        },
+        "timezone": {
+          "offset": "+4:30",
+          "description": "Kabul"
+        }
+      },
+      "email": "jivan.arendse@example.com",
+      "login": {
+        "uuid": "70a58ea6-a431-47c5-b2fd-e12839d3ed13",
+        "username": "whiteswan921",
+        "password": "bruno",
+        "salt": "NsnfEYuo",
+        "md5": "e533d2ea63244d38c9578d6212a33c07",
+        "sha1": "34fa4cae7af304423dde24165f741d54cd6e5712",
+        "sha256": "55334fe7990134660b9a5d3d0b8488ff82b4ba456fa57bdb958d8b69720bc3ae"
+      },
+      "dob": {
+        "date": "1950-05-04T15:50:41.794Z",
+        "age": 72
+      },
+      "registered": {
+        "date": "2005-11-07T00:57:00.562Z",
+        "age": 17
+      },
+      "phone": "(0115) 353348",
+      "cell": "(06) 54030660",
+      "id": {
+        "name": "BSN",
+        "value": "28710768"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/51.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/51.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/51.jpg"
+      },
+      "nat": "NL"
+    }
+  ],
+  "info": {
+    "seed": "9c148aeec29c0ded",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
