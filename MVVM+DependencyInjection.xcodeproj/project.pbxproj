@@ -12,6 +12,12 @@
 		7302FD332873F60900FAD64F /* UsersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302FD322873F60900FAD64F /* UsersCoordinator.swift */; };
 		7302FD352873F6E700FAD64F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302FD342873F6E700FAD64F /* UserViewModel.swift */; };
 		7302FD39287425DB00FAD64F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7302FD38287425DB00FAD64F /* UserModel.swift */; };
+		732EED352972765B00A78985 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732EED342972765B00A78985 /* CoreDataHelper.swift */; };
+		73438FC92972A65600D10212 /* UserDataModal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73438FC62972A65600D10212 /* UserDataModal.xcdatamodeld */; };
+		73438FCC2973D26800D10212 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FCB2973D26800D10212 /* DataProvider.swift */; };
+		73438FCF2973D51F00D10212 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FCE2973D51F00D10212 /* Translation.swift */; };
+		73438FD12973D52E00D10212 /* UserTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FD02973D52E00D10212 /* UserTranslator.swift */; };
+		73438FD42973F76400D10212 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FD32973F76400D10212 /* UserDetailViewController.swift */; };
 		739C7674284C06C200C2CC64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C7673284C06C200C2CC64 /* AppDelegate.swift */; };
 		739C7678284C06C200C2CC64 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C7677284C06C200C2CC64 /* UsersViewController.swift */; };
 		739C767B284C06C200C2CC64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 739C7679284C06C200C2CC64 /* Main.storyboard */; };
@@ -47,6 +53,13 @@
 		7302FD322873F60900FAD64F /* UsersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCoordinator.swift; sourceTree = "<group>"; };
 		7302FD342873F6E700FAD64F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		7302FD38287425DB00FAD64F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		732EED342972765B00A78985 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		73438FC72972A65600D10212 /* UserDataModal 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UserDataModal 2.xcdatamodel"; sourceTree = "<group>"; };
+		73438FC82972A65600D10212 /* UserDataModal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserDataModal.xcdatamodel; sourceTree = "<group>"; };
+		73438FCB2973D26800D10212 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		73438FCE2973D51F00D10212 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		73438FD02973D52E00D10212 /* UserTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTranslator.swift; sourceTree = "<group>"; };
+		73438FD32973F76400D10212 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		739C7670284C06C200C2CC64 /* MVVM+DependencyInjection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM+DependencyInjection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		739C7673284C06C200C2CC64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		739C7677284C06C200C2CC64 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				739C7677284C06C200C2CC64 /* UsersViewController.swift */,
+				73438FD32973F76400D10212 /* UserDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -156,6 +170,42 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		732EED33297274D000A78985 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				732EED342972765B00A78985 /* CoreDataHelper.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		73438FCA2973D23B00D10212 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				732EED33297274D000A78985 /* CoreData */,
+				739C768C284C766400C2CC64 /* Service */,
+				73438FCB2973D26800D10212 /* DataProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		73438FCD2973D50300D10212 /* Translation */ = {
+			isa = PBXGroup;
+			children = (
+				73438FCE2973D51F00D10212 /* Translation.swift */,
+				73438FD02973D52E00D10212 /* UserTranslator.swift */,
+			);
+			path = Translation;
+			sourceTree = "<group>";
+		};
+		73438FD22973EB4800D10212 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				73438FCA2973D23B00D10212 /* DataProvider */,
+				73438FCD2973D50300D10212 /* Translation */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
 		739C7667284C06C200C2CC64 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +227,7 @@
 		739C7672284C06C200C2CC64 /* MVVM+DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				73438FD22973EB4800D10212 /* DataLayer */,
 				7302FD282873F26C00FAD64F /* Applications */,
 				7302FD362873F73800FAD64F /* Storyboard */,
 				7302FD2E2873F5C400FAD64F /* Modules */,
@@ -184,12 +235,12 @@
 				739C76A9285052D400C2CC64 /* EndPoint */,
 				739C76A52850474000C2CC64 /* Helper */,
 				739C769E28503EA000C2CC64 /* Constant */,
-				739C768C284C766400C2CC64 /* Service */,
 				739C7692284C7CE800C2CC64 /* NetworkManager */,
 				739C767C284C06C300C2CC64 /* Assets.xcassets */,
 				739C767E284C06C300C2CC64 /* LaunchScreen.storyboard */,
 				739C7681284C06C300C2CC64 /* Info.plist */,
 				739C7689284C079100C2CC64 /* Readme.md */,
+				73438FC62972A65600D10212 /* UserDataModal.xcdatamodeld */,
 			);
 			path = "MVVM+DependencyInjection";
 			sourceTree = "<group>";
@@ -378,18 +429,24 @@
 				739C76AB285052FF00C2CC64 /* UserEndPoints.swift in Sources */,
 				739C7699284C964B00C2CC64 /* RequestError.swift in Sources */,
 				739C7678284C06C200C2CC64 /* UsersViewController.swift in Sources */,
+				732EED352972765B00A78985 /* CoreDataHelper.swift in Sources */,
 				739C76A82850476C00C2CC64 /* SCNetworkReachability.swift in Sources */,
+				73438FC92972A65600D10212 /* UserDataModal.xcdatamodeld in Sources */,
+				73438FCC2973D26800D10212 /* DataProvider.swift in Sources */,
 				739C768E284C768200C2CC64 /* UserService.swift in Sources */,
 				7302FD2B2873F2CA00FAD64F /* Coordinator.swift in Sources */,
+				73438FD42973F76400D10212 /* UserDetailViewController.swift in Sources */,
 				7302FD332873F60900FAD64F /* UsersCoordinator.swift in Sources */,
 				739C7697284C950E00C2CC64 /* HTTPMethod.swift in Sources */,
 				739C7695284C941700C2CC64 /* RequestBuilder.swift in Sources */,
 				739C76A4285042FE00C2CC64 /* HTTPClient.swift in Sources */,
 				739C7674284C06C200C2CC64 /* AppDelegate.swift in Sources */,
+				73438FD12973D52E00D10212 /* UserTranslator.swift in Sources */,
 				7302FD2D2873F36300FAD64F /* AppCoordinator.swift in Sources */,
 				7302FD352873F6E700FAD64F /* UserViewModel.swift in Sources */,
 				739C76A228503EDF00C2CC64 /* ApiConstant.swift in Sources */,
 				7302FD39287425DB00FAD64F /* UserModel.swift in Sources */,
+				73438FCF2973D51F00D10212 /* Translation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +726,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		73438FC62972A65600D10212 /* UserDataModal.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				73438FC72972A65600D10212 /* UserDataModal 2.xcdatamodel */,
+				73438FC82972A65600D10212 /* UserDataModal.xcdatamodel */,
+			);
+			currentVersion = 73438FC72972A65600D10212 /* UserDataModal 2.xcdatamodel */;
+			path = UserDataModal.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 739C7668284C06C200C2CC64 /* Project object */;
 }

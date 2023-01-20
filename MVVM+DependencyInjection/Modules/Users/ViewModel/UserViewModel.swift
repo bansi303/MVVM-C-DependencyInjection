@@ -7,24 +7,21 @@
 
 import Foundation
 
+typealias BlockWithResult = (Bool, String?) -> ()
+
 class UserViewModel {
-    weak var appCoordinator: UsersCoordinaor!
-    var userService: UserService!
     var userList: [UserModel]?
     
-    init(userService: UserService) {
-        self.userService = userService
+    private let dataProvider: DataProvider!
+    
+    init(dataProvider: DataProvider) {
+        self.dataProvider = dataProvider
     }
     
-    func getUsers(completionHnadler: @escaping (Bool, String?)->()) {
-        userService.getAllUsers() { userData, error in
-            if userData != nil {
-                self.userList = userData?.results
-                completionHnadler(true, "")
-            }
-            else {
-                completionHnadler(false, error)                
-            }
+    func getUsers(completionHandler: @escaping BlockWithResult) {
+        dataProvider.getUsers { [unowned self] userData, error in
+            userList = userData
+            completionHandler((error == ""), error)
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class UsersCoordinaor: Coordinator {
+class UsersCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []
@@ -23,10 +23,17 @@ class UsersCoordinaor: Coordinator {
     
     func start() {
         print("User coordinator start")
-        let usersViewController = storyboard.instantiateViewController(withIdentifier: "UsersViewController") as! UsersViewController
-        let userViewModel = UserViewModel.init(userService: UserServiceObject())
-        userViewModel.appCoordinator = self
+        var usersViewController = storyboard.instantiateViewController(withIdentifier: "UsersViewController") as! UsersViewController
+        usersViewController.appCoordinator = self
+        let dataProvider = DataProviderImp(userService: UserServiceObject())
+        let userViewModel = UserViewModel.init(dataProvider: dataProvider)
         usersViewController.viewModel = userViewModel
         navigationController.pushViewController(usersViewController, animated: true)
+    }
+    
+    func goToUserDetailsViewController(userData: UserModel) {
+        let vc = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
+        vc.userData = userData
+        navigationController.pushViewController(vc, animated: true)
     }
 }

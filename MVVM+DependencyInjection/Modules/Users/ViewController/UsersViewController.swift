@@ -10,6 +10,7 @@ import UIKit
 class UsersViewController: UIViewController {
     
     var viewModel: UserViewModel!
+    var appCoordinator: UsersCoordinator!
     
     @IBOutlet weak var tblViewUsers: UITableView!
     
@@ -20,7 +21,6 @@ class UsersViewController: UIViewController {
     }
     
     func setUpViewModel() {
-        viewModel = UserViewModel(userService: UserServiceObject())
         viewModel.getUsers() { resStatus, error in
             if resStatus {
                 self.tblViewUsers.reloadData()
@@ -39,6 +39,11 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
         let singleData = viewModel.userList?[indexPath.row]
         cell.cellData = singleData
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let singleData = viewModel.userList![indexPath.row]
+        appCoordinator.goToUserDetailsViewController(userData: singleData)
     }
 }
 

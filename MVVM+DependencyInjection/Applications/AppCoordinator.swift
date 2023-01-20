@@ -25,7 +25,7 @@ class AppCordinator: Coordinator {
     }
     
     func goToUser() {
-        let userCoordinator = UsersCoordinaor.init(navigationController: navigationController)
+        let userCoordinator = UsersCoordinator.init(navigationController: navigationController)
         userCoordinator.parentCoordinator = self
         children.append(userCoordinator)
         

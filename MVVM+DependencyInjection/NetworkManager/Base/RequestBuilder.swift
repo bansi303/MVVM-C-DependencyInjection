@@ -46,8 +46,6 @@ extension RequestBuilder {
                     urlRequest.httpBody = bodyData
                 }
             }
-//            LoggerHelper.log("Request url: \(urlRequest)")
-//            LoggerHelper.log("Request params: \(method == .POST ? params : [:])")
             return urlRequest
         }
         return nil
