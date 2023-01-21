@@ -18,6 +18,12 @@
 		73438FCF2973D51F00D10212 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FCE2973D51F00D10212 /* Translation.swift */; };
 		73438FD12973D52E00D10212 /* UserTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FD02973D52E00D10212 /* UserTranslator.swift */; };
 		73438FD42973F76400D10212 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73438FD32973F76400D10212 /* UserDetailViewController.swift */; };
+		736E4137297BA3B600948AD4 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 736E4136297BA3B600948AD4 /* Swinject */; };
+		736E413A297BB39D00948AD4 /* DependencyRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E4139297BB39D00948AD4 /* DependencyRegister.swift */; };
+		736E413C297BBC8F00948AD4 /* UserDetailsViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E413B297BBC8F00948AD4 /* UserDetailsViewModal.swift */; };
+		736E413E297BC25F00948AD4 /* UserTableViewCellViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E413D297BC25F00948AD4 /* UserTableViewCellViewModal.swift */; };
+		736E4140297BD72900948AD4 /* SwinjectStoryboard+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736E413F297BD72900948AD4 /* SwinjectStoryboard+Extention.swift */; };
+		736E4143297BD85600948AD4 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = 736E4142297BD85600948AD4 /* SwinjectStoryboard */; };
 		739C7674284C06C200C2CC64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C7673284C06C200C2CC64 /* AppDelegate.swift */; };
 		739C7678284C06C200C2CC64 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C7677284C06C200C2CC64 /* UsersViewController.swift */; };
 		739C767B284C06C200C2CC64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 739C7679284C06C200C2CC64 /* Main.storyboard */; };
@@ -60,6 +66,10 @@
 		73438FCE2973D51F00D10212 /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		73438FD02973D52E00D10212 /* UserTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTranslator.swift; sourceTree = "<group>"; };
 		73438FD32973F76400D10212 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		736E4139297BB39D00948AD4 /* DependencyRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyRegister.swift; sourceTree = "<group>"; };
+		736E413B297BBC8F00948AD4 /* UserDetailsViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModal.swift; sourceTree = "<group>"; };
+		736E413D297BC25F00948AD4 /* UserTableViewCellViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCellViewModal.swift; sourceTree = "<group>"; };
+		736E413F297BD72900948AD4 /* SwinjectStoryboard+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwinjectStoryboard+Extention.swift"; sourceTree = "<group>"; };
 		739C7670284C06C200C2CC64 /* MVVM+DependencyInjection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM+DependencyInjection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		739C7673284C06C200C2CC64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		739C7677284C06C200C2CC64 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736E4143297BD85600948AD4 /* SwinjectStoryboard in Frameworks */,
+				736E4137297BA3B600948AD4 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				7302FD342873F6E700FAD64F /* UserViewModel.swift */,
+				736E413B297BBC8F00948AD4 /* UserDetailsViewModal.swift */,
+				736E413D297BC25F00948AD4 /* UserTableViewCellViewModal.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -206,6 +220,15 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
+		736E4138297BB38300948AD4 /* DependencyRegister */ = {
+			isa = PBXGroup;
+			children = (
+				736E4139297BB39D00948AD4 /* DependencyRegister.swift */,
+				736E413F297BD72900948AD4 /* SwinjectStoryboard+Extention.swift */,
+			);
+			path = DependencyRegister;
+			sourceTree = "<group>";
+		};
 		739C7667284C06C200C2CC64 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +250,7 @@
 		739C7672284C06C200C2CC64 /* MVVM+DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				736E4138297BB38300948AD4 /* DependencyRegister */,
 				73438FD22973EB4800D10212 /* DataLayer */,
 				7302FD282873F26C00FAD64F /* Applications */,
 				7302FD362873F73800FAD64F /* Storyboard */,
@@ -339,6 +363,10 @@
 			dependencies = (
 			);
 			name = "MVVM+DependencyInjection";
+			packageProductDependencies = (
+				736E4136297BA3B600948AD4 /* Swinject */,
+				736E4142297BD85600948AD4 /* SwinjectStoryboard */,
+			);
 			productName = "MVVM+DependencyInjection";
 			productReference = 739C7670284C06C200C2CC64 /* MVVM+DependencyInjection.app */;
 			productType = "com.apple.product-type.application";
@@ -389,6 +417,10 @@
 				Base,
 			);
 			mainGroup = 739C7667284C06C200C2CC64;
+			packageReferences = (
+				736E4135297BA3B600948AD4 /* XCRemoteSwiftPackageReference "Swinject" */,
+				736E4141297BD85600948AD4 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
+			);
 			productRefGroup = 739C7671284C06C200C2CC64 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,7 +457,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736E413A297BB39D00948AD4 /* DependencyRegister.swift in Sources */,
 				739C76A028503EB700C2CC64 /* AppConfig.swift in Sources */,
+				736E413C297BBC8F00948AD4 /* UserDetailsViewModal.swift in Sources */,
 				739C76AB285052FF00C2CC64 /* UserEndPoints.swift in Sources */,
 				739C7699284C964B00C2CC64 /* RequestError.swift in Sources */,
 				739C7678284C06C200C2CC64 /* UsersViewController.swift in Sources */,
@@ -445,8 +479,10 @@
 				7302FD2D2873F36300FAD64F /* AppCoordinator.swift in Sources */,
 				7302FD352873F6E700FAD64F /* UserViewModel.swift in Sources */,
 				739C76A228503EDF00C2CC64 /* ApiConstant.swift in Sources */,
+				736E4140297BD72900948AD4 /* SwinjectStoryboard+Extention.swift in Sources */,
 				7302FD39287425DB00FAD64F /* UserModel.swift in Sources */,
 				73438FCF2973D51F00D10212 /* Translation.swift in Sources */,
+				736E413E297BC25F00948AD4 /* UserTableViewCellViewModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +762,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		736E4135297BA3B600948AD4 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		736E4141297BD85600948AD4 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectStoryboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		736E4136297BA3B600948AD4 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 736E4135297BA3B600948AD4 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		736E4142297BD85600948AD4 /* SwinjectStoryboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 736E4141297BD85600948AD4 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
+			productName = SwinjectStoryboard;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		73438FC62972A65600D10212 /* UserDataModal.xcdatamodeld */ = {

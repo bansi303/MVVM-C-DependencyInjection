@@ -22,18 +22,18 @@ class UsersCoordinator: Coordinator {
     }
     
     func start() {
-        print("User coordinator start")
-        var usersViewController = storyboard.instantiateViewController(withIdentifier: "UsersViewController") as! UsersViewController
-        usersViewController.appCoordinator = self
-        let dataProvider = DataProviderImp(userService: UserServiceObject())
-        let userViewModel = UserViewModel.init(dataProvider: dataProvider)
-        usersViewController.viewModel = userViewModel
-        navigationController.pushViewController(usersViewController, animated: true)
+//        print("User coordinator start")
+//        var usersViewController = storyboard.instantiateViewController(withIdentifier: "UsersViewController") as! UsersViewController
+//        usersViewController.appCoordinator = self
+//        let dataProvider = DataProviderImp(userService: UserServiceObject())
+//        let userViewModel = UserViewModel.init(dataProvider: dataProvider)
+//        usersViewController.viewModel = userViewModel
+//        navigationController.pushViewController(usersViewController, animated: true)
     }
     
     func goToUserDetailsViewController(userData: UserModel) {
         let vc = storyboard.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
-        vc.userData = userData
+//        vc.configure(with: userData)
         navigationController.pushViewController(vc, animated: true)
     }
 }

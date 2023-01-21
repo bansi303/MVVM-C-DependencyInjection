@@ -9,8 +9,13 @@ import Foundation
 
 typealias BlockWithResult = (Bool, String?) -> ()
 
-class UserViewModel {
-    var userList: [UserModel]?
+protocol UserViewModel {
+    var userList: [UserModel] { get }
+    func getUsers(completionHandler: @escaping BlockWithResult)
+}
+
+class UserViewModelImp: UserViewModel {
+    var userList = [UserModel]()
     
     private let dataProvider: DataProvider!
     

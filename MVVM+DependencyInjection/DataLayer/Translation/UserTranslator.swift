@@ -8,7 +8,12 @@
 import Foundation
 import CoreData
 
-class UserTranslator {
+protocol UserTranslator {
+    func translate(from userDM: UserDM?) -> UserModel?
+    func translate(from userModal: UserModel?, with context: NSManagedObjectContext) -> UserDM?
+}
+
+class UserTranslatorImp: UserTranslator {
     
     func translate(from userDM: UserDM?) -> UserModel? {
         guard let userDM = userDM else { return nil }

@@ -21,19 +21,18 @@ class DataProviderImp: DataProvider {
     
 //    static let shared = DataProvider()
     
-    fileprivate var userService: UserService?
-    fileprivate var coreDataHelper = CoreDataHelper(modelName: "UserDataModal")
-    fileprivate var translation = Transalation()
+    fileprivate var userService: UserService
+    fileprivate var coreDataHelper: CoreDataHelper?
+    fileprivate var translation: Transalation
     
-    init(){ }
-    
-    convenience init(userService: UserService) {
-        self.init()
+    init(userService: UserService, coreDataHelper: CoreDataHelper?, translation: Transalation){
         self.userService = userService
+        self.coreDataHelper = coreDataHelper
+        self.translation = translation
     }
     
     func getUsers(completionHnadler: @escaping UserModalBlock) {
-        guard let userService = userService else { return }
+        guard let coreDataHelper = coreDataHelper else { return }
         userService.getAllUsers() { [unowned self] userData, error in
             if userData != nil {
                 let userDict = userData?.results ?? []

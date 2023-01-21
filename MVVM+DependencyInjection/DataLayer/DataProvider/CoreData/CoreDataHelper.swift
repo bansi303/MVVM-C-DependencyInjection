@@ -10,15 +10,15 @@ import CoreData
 
 typealias UserDMBlock = ([UserDM], Error?) -> ()
 
-class CoreDataHelper: NSObject {
-    private let modelName: String
-    
-    init(modelName: String) {
-        self.modelName = modelName
-    }
-    
+protocol CoreDataHelper {
+    func syncUserData(userList: [UserModel], translation: Transalation)
+    func fetchUserDataFromLocalDB(completionHandler: UserDMBlock)
+}
+
+class CoreDataHelperImp: CoreDataHelper {
+
     private lazy var storeContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: self.modelName)
+        let container = NSPersistentContainer(name: "UserDataModal")
         
         /*add necessary support for migration*/
         let description = NSPersistentStoreDescription()
@@ -65,7 +65,7 @@ class CoreDataHelper: NSObject {
 //    }
 }
 
-extension CoreDataHelper {
+extension CoreDataHelperImp {
     func syncUserData(userList: [UserModel], translation: Transalation) {
         clearOldUserResults()
         _ = translation.toUserDMs(from: userList, with: managedContext)

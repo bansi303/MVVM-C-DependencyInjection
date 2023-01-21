@@ -9,19 +9,23 @@ import UIKit
 
 class UserDetailViewController: UIViewController {
 
-    var userData: UserModel?
-    
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblPhone: UILabel!
+    
+    var userDetailsViewModal: UserDetailsViewModal!
+    
+    func configure(with userDetailsViewModal: UserDetailsViewModal) {
+        self.userDetailsViewModal = userDetailsViewModal
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lblName.text = (userData?.name?.first ?? "John") + " " + (userData?.name?.last ?? "Doe")
-        lblEmail.text = userData?.email
-        lblPhone.text = userData?.phone
+        lblName.text = userDetailsViewModal.name
+        lblEmail.text = userDetailsViewModal.email
+        lblPhone.text = userDetailsViewModal.phone
     }
     
     /*
