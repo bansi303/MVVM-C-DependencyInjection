@@ -13,10 +13,13 @@ class AppCordinator: Coordinator {
     
     var children: [Coordinator] = []
     
-    var navigationController: UINavigationController
+    var rootViewController: UIViewController
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    var dependencyRegister: DependencyRegister
+    
+    init(rootViewController: UIViewController, dependencyRegister: DependencyRegister) {
+        self.rootViewController = rootViewController
+        self.dependencyRegister = dependencyRegister
     }
     
     func start() {
@@ -25,10 +28,9 @@ class AppCordinator: Coordinator {
     }
     
     func goToUser() {
-        let userCoordinator = UsersCoordinator.init(navigationController: navigationController)
+        let userCoordinator = dependencyRegister.makeUserCordination(vc: rootViewController)
         userCoordinator.parentCoordinator = self
         children.append(userCoordinator)
-        
         userCoordinator.start()
     }
     

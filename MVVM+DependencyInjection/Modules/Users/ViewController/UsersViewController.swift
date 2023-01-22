@@ -11,10 +11,15 @@ class UsersViewController: UIViewController {
     
     var viewModel: UserViewModel!
     var tableViewCellMake: DependencyRegister.UserTableViewCellMaker!
-    var detailsVcMaker: DependencyRegister.UserDetailViewControllerMaker!
-    var appCoordinator: UsersCoordinator!
+    var usersCoordinator: UsersCoordinator!
     
     @IBOutlet weak var tblViewUsers: UITableView!
+    
+    func configure(with userViewModal: UserViewModel, tableViewCellMake: @escaping DependencyRegister.UserTableViewCellMaker, usersCoordinator: UsersCoordinator) {
+        self.viewModel = userViewModal
+        self.tableViewCellMake = tableViewCellMake
+        self.usersCoordinator = usersCoordinator
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +29,7 @@ class UsersViewController: UIViewController {
                 self.tblViewUsers.reloadData()
             }
         }
-    }
-    
-    func configure(with userViewModal: UserViewModel, tableViewCellMake: @escaping DependencyRegister.UserTableViewCellMaker, detailsVcMaker: @escaping DependencyRegister.UserDetailViewControllerMaker) {
-        self.viewModel = userViewModal
-        self.tableViewCellMake = tableViewCellMake
-        self.detailsVcMaker = detailsVcMaker
+        print("Bansi Main VC")
     }
 }
 
@@ -46,9 +46,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let singleData = viewModel.userList[indexPath.row]
-        let detailViewController = detailsVcMaker(singleData)
-        navigationController?.pushViewController(detailViewController, animated: true)
-//        appCoordinator.goToUserDetailsViewController(userData: singleData)
+        usersCoordinator.goToUserDetailsViewController(userData: singleData)
     }
 }
 

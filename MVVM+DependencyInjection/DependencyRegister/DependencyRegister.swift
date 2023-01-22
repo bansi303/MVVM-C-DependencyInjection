@@ -12,6 +12,12 @@ import Swinject
 protocol DependencyRegister {
     var container: Container { get }
     
+    typealias AppCordinatorMaker = (UIViewController) -> AppCordinator
+    func makeAppCordination(vc: UIViewController) -> AppCordinator
+    
+    typealias UserCordinatorMaker = (UIViewController) -> UsersCoordinator
+    func makeUserCordination(vc: UIViewController) -> UsersCoordinator
+    
     typealias UserTableViewCellMaker = (UITableView, IndexPath, UserModel) -> UsersTableViewCell
     func makeUserTableViewCell(for tableView: UITableView, at indexPath: IndexPath, userModal: UserModel) -> UsersTableViewCell
     
@@ -22,6 +28,8 @@ protocol DependencyRegister {
 
 class DependencyRegisterImp: DependencyRegister {
     var container: Container
+    var appCordinator: AppCordinator!
+    var usersCordinator: UsersCoordinator!
     
     init(container: Container) {
         Container.loggingFunction = nil
@@ -33,6 +41,15 @@ class DependencyRegisterImp: DependencyRegister {
     }
     
     func registerDepencies() {
+        
+        container.register(AppCordinator.self) { (r, rootViewController: UIViewController) in
+            return AppCordinator(rootViewController: rootViewController, dependencyRegister: self)
+        }.inObjectScope(.container)
+        
+        container.register(UsersCoordinator.self) { (r, rootViewController: UIViewController) in
+            return UsersCoordinator(rootViewController: rootViewController, dependencyRegister: self)
+        }.inObjectScope(.container)
+        
         container.register(UserService.self) { _ in UserServiceObject() }.inObjectScope(.container)
         container.register(CoreDataHelper.self) { _ in CoreDataHelperImp() }.inObjectScope(.container)
         container.register(UserTranslator.self) { _ in UserTranslatorImp() }.inObjectScope(.container)
@@ -43,7 +60,7 @@ class DependencyRegisterImp: DependencyRegister {
         
         container.register(DataProvider.self) { r in
             DataProviderImp(userService: r.resolve(UserService.self)!, coreDataHelper: r.resolve(CoreDataHelper.self)!, translation: r.resolve(Transalation.self)!)
-        }
+        }.inObjectScope(.container)
     }
     
     func registerModals() {
@@ -60,6 +77,16 @@ class DependencyRegisterImp: DependencyRegister {
             vc.configure(with: viewModal)
             return vc
         }
+    }
+    
+    func makeAppCordination(vc: UIViewController) -> AppCordinator {
+        appCordinator = container.resolve(AppCordinator.self, argument: vc)!
+        return appCordinator
+    }
+    
+    func makeUserCordination(vc: UIViewController) -> UsersCoordinator {
+        usersCordinator = container.resolve(UsersCoordinator.self, argument: vc)!
+        return usersCordinator
     }
     
     func makeUserTableViewCell(for tableView: UITableView, at indexPath: IndexPath, userModal: UserModel) -> UsersTableViewCell {
