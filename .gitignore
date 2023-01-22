@@ -1,0 +1,14 @@
+# Xcode
+xcuserdata/
+project.xcworkspace/
+DerivedData/
+
+# Cocoapods
+Pods/
+
+# Mac OS X Finder
+.DS_Store
+
+# build products
+build/
+*.[oa]
