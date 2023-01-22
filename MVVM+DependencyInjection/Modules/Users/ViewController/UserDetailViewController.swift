@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class UserDetailViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class UserDetailViewController: UIViewController {
     @IBOutlet weak var lblPhone: UILabel!
     
     var userDetailsViewModal: UserDetailsViewModal!
+    fileprivate var bag = DisposeBag()
     
     func configure(with userDetailsViewModal: UserDetailsViewModal) {
         self.userDetailsViewModal = userDetailsViewModal
@@ -21,11 +23,13 @@ class UserDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        lblName.text = userDetailsViewModal.name
-        lblEmail.text = userDetailsViewModal.email
-        lblPhone.text = userDetailsViewModal.phone
+        userDetailsViewModal.name.asObservable().bind(to: lblName.rx.text).disposed(by: bag)
+        userDetailsViewModal.email.asObservable().bind(to: lblEmail.rx.text).disposed(by: bag)
+        userDetailsViewModal.phone.asObservable().bind(to: lblPhone.rx.text).disposed(by: bag)
+        
+//        let textField = UITextField()
+//        textField.rx.text.orEmpty.asObservable().bind(to: userDetailsViewModal.name).disposed(by: bag)
+//        userDetailsViewModal.name.asObservable().bind(to: textField.rx.text).disposed(by: bag)
     }
     
     /*

@@ -13,6 +13,7 @@ protocol UserTableViewCellViewModal {
     var name: String { get }
     var email: String { get }
     var phone: String { get }
+    var profilePicStr: String? { get }
 }
 
 class UserTableViewCellViewModalImp: UserTableViewCellViewModal {
@@ -21,6 +22,7 @@ class UserTableViewCellViewModalImp: UserTableViewCellViewModal {
     var name: String { return (userData.name?.first ?? "") + " " + (userData.name?.last ?? "") }
     var email: String { return userData.email ?? "" }
     var phone: String { return userData.phone ?? "" }
+    var profilePicStr: String? { return userData.picture?.medium ?? "" }
     
     init(userData: UserModel) {
         self.userData = userData

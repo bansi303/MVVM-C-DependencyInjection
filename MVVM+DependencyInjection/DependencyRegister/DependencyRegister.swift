@@ -90,8 +90,9 @@ class DependencyRegisterImp: DependencyRegister {
     }
     
     func makeUserTableViewCell(for tableView: UITableView, at indexPath: IndexPath, userModal: UserModel) -> UsersTableViewCell {
+        let viewModal = container.resolve(UserTableViewCellViewModal.self, argument: userModal)!
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsersTableViewCell", for: indexPath) as! UsersTableViewCell
-        cell.configure(with: userModal)
+        cell.configure(with: viewModal)
         return cell
     }
     

@@ -6,11 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
+import RxCocoa
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, UITableViewDelegate {
     var viewModel: UserViewModel!
     var tableViewCellMake: DependencyRegister.UserTableViewCellMaker!
     var usersCoordinator: UsersCoordinator!
+    fileprivate var dataSource: RxTableViewSectionedReloadDataSource<TableViewCustomData>!
+    fileprivate var bag = DisposeBag()
     
     @IBOutlet weak var tblViewUsers: UITableView!
     
@@ -23,29 +28,36 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        initDataSource()
+        initTableView()
+        
         viewModel.getUsers() { resStatus, error in
             if resStatus {
                 self.tblViewUsers.reloadData()
             }
         }
-        print("Bansi Main VC")
     }
-}
+    
+    func initTableView() {
+        viewModel.userCustomList.asObserver()
+            .bind(to: tblViewUsers.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
+        
+        tblViewUsers.rx.itemSelected.map { indexPath in
+            return (indexPath, self.dataSource[indexPath])
+        }.subscribe { [weak self] indexPath, userModal in
+            self?.usersCoordinator.goToUserDetailsViewController(userData: userModal)
+        }.disposed(by: bag)
 
-extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.userList.count
+        tblViewUsers.rx.setDelegate(self).disposed(by: bag)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let singleData = viewModel.userList[indexPath.row]
-        let cell = tableViewCellMake(tableView, indexPath, singleData)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let singleData = viewModel.userList[indexPath.row]
-        usersCoordinator.goToUserDetailsViewController(userData: singleData)
+    func initDataSource() {
+        dataSource = RxTableViewSectionedReloadDataSource<TableViewCustomData>.init(configureCell: { [unowned self] _, tableView, indexPath, userModal in
+            let cell = tableViewCellMake(tableView, indexPath, userModal)
+            return cell
+        })
     }
 }
 
@@ -53,8 +65,8 @@ class UsersTableViewCell: UITableViewCell {
     @IBOutlet weak var imgViewUserProfilePic: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
     
-    func configure(with userModal: UserModel) {
-        if let strURL = userModal.picture?.medium, let url = URL(string: strURL) {
+    func configure(with userTableViewCellViewModal: UserTableViewCellViewModal) {
+        if let strURL = userTableViewCellViewModal.profilePicStr, let url = URL(string: strURL) {
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
@@ -62,6 +74,6 @@ class UsersTableViewCell: UITableViewCell {
                 }
             }
         }
-        lblUserName.text = (userModal.name?.first ?? " ") + " " + (userModal.name?.last ?? " ")
+        lblUserName.text = userTableViewCellViewModal.name
     }
 }
