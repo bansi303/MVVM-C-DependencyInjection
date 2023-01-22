@@ -19,10 +19,10 @@ extension SwinjectStoryboard {
         
         func main() {
             dependencyRegistry.container.storyboardInitCompleted(UsersViewController.self) { r, vc in
-                let appCordinator = dependencyRegistry.makeAppCordination(vc: vc)
-                AppDelegate.appCoordinator = appCordinator
+                //let appCordinator = dependencyRegistry.makeAppCordination(vc: vc)
                 
                 let userCordinator = dependencyRegistry.makeUserCordination(vc: vc)
+                AppDelegate.usersCoordinator = userCordinator
                 
                 let viewModal = r.resolve(UserViewModel.self)!
                 vc.configure(with: viewModal, tableViewCellMake: dependencyRegistry.makeUserTableViewCell, usersCoordinator: userCordinator)

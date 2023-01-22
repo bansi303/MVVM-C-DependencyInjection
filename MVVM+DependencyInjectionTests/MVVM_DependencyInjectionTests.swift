@@ -11,12 +11,12 @@ import XCTest
 class MVVM_DependencyInjectionTests: XCTestCase {
     
     var userViewModel: UserViewModel?
-    var dataProvider: DataProviderImp?
+    var dataProvider: DataProvider?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         dataProvider = DataProviderImp(userService: UserServiceMockObject())
-        userViewModel = UserViewModel.init(dataProvider: dataProvider!)
+        userViewModel = UserViewModelImp.init(dataProvider: dataProvider!)
     }
 
     override func tearDownWithError() throws {
@@ -38,8 +38,8 @@ class MVVM_DependencyInjectionTests: XCTestCase {
             expectation.fulfill()
         }
         waitForExpectations(timeout: 3.0, handler: nil)
-        XCTAssertEqual(userViewModel!.userList?.count, 1)
-        XCTAssertEqual(userViewModel!.userList?.first?.name?.first, "Jivan")
+        XCTAssertEqual(userViewModel!.userList.count, 1)
+        XCTAssertEqual(userViewModel!.userList.first?.name?.first, "Jivan")
     }
 }
 

@@ -8,7 +8,6 @@
 import UIKit
 
 class UsersViewController: UIViewController {
-    
     var viewModel: UserViewModel!
     var tableViewCellMake: DependencyRegister.UserTableViewCellMaker!
     var usersCoordinator: UsersCoordinator!
@@ -66,4 +65,3 @@ class UsersTableViewCell: UITableViewCell {
         lblUserName.text = (userModal.name?.first ?? " ") + " " + (userModal.name?.last ?? " ")
     }
 }
-

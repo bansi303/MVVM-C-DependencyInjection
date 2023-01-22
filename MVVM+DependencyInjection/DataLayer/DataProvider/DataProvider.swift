@@ -19,34 +19,35 @@ protocol DataProvider {
 
 class DataProviderImp: DataProvider {
     
-//    static let shared = DataProvider()
-    
     fileprivate var userService: UserService
     fileprivate var coreDataHelper: CoreDataHelper?
-    fileprivate var translation: Transalation
+    fileprivate var translation: Transalation?
     
-    init(userService: UserService, coreDataHelper: CoreDataHelper?, translation: Transalation){
+    init(userService: UserService, coreDataHelper: CoreDataHelper?, translation: Transalation?){
         self.userService = userService
         self.coreDataHelper = coreDataHelper
         self.translation = translation
     }
     
+    convenience init(userService: UserService) {
+        self.init(userService: userService, coreDataHelper: nil, translation: nil)
+    }
+    
     func getUsers(completionHnadler: @escaping UserModalBlock) {
-        guard let coreDataHelper = coreDataHelper else { return }
         userService.getAllUsers() { [unowned self] userData, error in
             if userData != nil {
                 let userDict = userData?.results ?? []
-                coreDataHelper.syncUserData(userList: userDict, translation: translation)
+                coreDataHelper?.syncUserData(userList: userDict, translation: translation!)
                 completionHnadler(userDict, "")
             }
             else {
-                coreDataHelper.fetchUserDataFromLocalDB { userModel, error in
+                coreDataHelper?.fetchUserDataFromLocalDB { userModel, error in
                     if error != nil {
                         completionHnadler([], error?.localizedDescription)
                     }
                     else {
-                        let userModals = translation.toUserModals(from: userModel)
-                        completionHnadler(userModals, "")
+                        let userModals = translation?.toUserModals(from: userModel)
+                        completionHnadler(userModals ?? [], "")
                     }
                 }
             }
