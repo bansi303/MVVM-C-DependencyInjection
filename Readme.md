@@ -15,9 +15,13 @@ This project is an example of how to use modern iOS development techniques to cr
 The project is organized into several layers:
 
 **Models:** This layer contains the data models used by the app such as UserModel.
+
 **ViewModels:** This layer contains the view models(UserViewModel, UserDetailsViewModel, and UserTableViewCellViewModal) that are used to bind the data to the UI.
+
 **Views:** This layer contains the view controllers and their associated views.
+
 **Coordinators:** This layer contains the flow coordinators(AppCoordinator and UsersCoordinator) that manage the navigation flow of the app.
+
 **Services:** This layer contains the services that are used to interact with the data store (Core Data) and other external resources (e.g. APIs).
 
 The project also includes a set of **unit tests using mockObjects** that demonstrate how to test the different components of the app.
