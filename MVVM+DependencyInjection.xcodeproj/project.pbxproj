@@ -127,7 +127,6 @@
 				5CF5509E473DF9DE5758AFFC /* Pods-MVVM+DependencyInjectionTests.debug.xcconfig */,
 				01B32BDC72C63A73D9B42A32 /* Pods-MVVM+DependencyInjectionTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -250,6 +249,7 @@
 		739C7667284C06C200C2CC64 = {
 			isa = PBXGroup;
 			children = (
+				739C7689284C079100C2CC64 /* Readme.md */,
 				739C7672284C06C200C2CC64 /* MVVM+DependencyInjection */,
 				73B2F3F0287AE0D10036B632 /* MVVM+DependencyInjectionTests */,
 				739C7671284C06C200C2CC64 /* Products */,
@@ -283,7 +283,6 @@
 				739C767C284C06C300C2CC64 /* Assets.xcassets */,
 				739C767E284C06C300C2CC64 /* LaunchScreen.storyboard */,
 				739C7681284C06C300C2CC64 /* Info.plist */,
-				739C7689284C079100C2CC64 /* Readme.md */,
 				73438FC62972A65600D10212 /* UserDataModal.xcdatamodeld */,
 			);
 			path = "MVVM+DependencyInjection";
