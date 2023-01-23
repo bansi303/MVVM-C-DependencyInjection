@@ -2,15 +2,15 @@
 
 This project is an example of how to use modern iOS development techniques to create a user management system. The project makes use of the following technologies:
 
-> **Model-View-ViewModel (MVVM) architecture:** This architecture pattern is used to separate the logic of the app from its presentation. This makes the code more maintainable and testable.
+**Model-View-ViewModel (MVVM) architecture:** This architecture pattern is used to separate the logic of the app from its presentation. This makes the code more maintainable and testable.
 
-> **Flow Coordinator:** This pattern is used to manage the navigation flow of the app. It helps to keep the ViewControllers decoupled and makes it easier to add new screens.
+**Flow Coordinator:** This pattern is used to manage the navigation flow of the app. It helps to keep the ViewControllers decoupled and makes it easier to add new screens.
 
-> **Swinject:** This is a dependency injection framework for Swift. It is used to manage the dependencies between objects and make the code more testable.
+**Swinject:** This is a dependency injection framework for Swift. It is used to manage the dependencies between objects and make the code more testable.
 
-> **Core Data:** This is Apple's framework for object-relational mapping (ORM) and data persistence. It is used to store and retrieve user data.
+**Core Data:** This is Apple's framework for object-relational mapping (ORM) and data persistence. It is used to store and retrieve user data.
 
-> **RxSwift:** This is a reactive programming framework for Swift. It is used to bind the UI to the data and make the app more responsive.
+**RxSwift:** This is a reactive programming framework for Swift. It is used to bind the UI to the data and make the app more responsive.
 
 The project is organized into several layers:
 
