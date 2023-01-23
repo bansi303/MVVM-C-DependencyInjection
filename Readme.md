@@ -2,27 +2,27 @@
 
 This project is an example of how to use modern iOS development techniques to create a user management system. The project makes use of the following technologies:
 
-**Model-View-ViewModel (MVVM) architecture:** This architecture pattern is used to separate the logic of the app from its presentation. This makes the code more maintainable and testable.
+1. **Model-View-ViewModel (MVVM) architecture:** This architecture pattern is used to separate the logic of the app from its presentation. This makes the code more maintainable and testable.
 
-**Flow Coordinator:** This pattern is used to manage the navigation flow of the app. It helps to keep the ViewControllers decoupled and makes it easier to add new screens.
+2. **Flow Coordinator:** This pattern is used to manage the navigation flow of the app. It helps to keep the ViewControllers decoupled and makes it easier to add new screens.
 
-**Swinject:** This is a dependency injection framework for Swift. It is used to manage the dependencies between objects and make the code more testable.
+3. **Swinject:** This is a dependency injection framework for Swift. It is used to manage the dependencies between objects and make the code more testable.
 
-**Core Data:** This is Apple's framework for object-relational mapping (ORM) and data persistence. It is used to store and retrieve user data.
+4. **Core Data:** This is Apple's framework for object-relational mapping (ORM) and data persistence. It is used to store and retrieve user data.
 
-**RxSwift:** This is a reactive programming framework for Swift. It is used to bind the UI to the data and make the app more responsive.
+5. **RxSwift:** This is a reactive programming framework for Swift. It is used to bind the UI to the data and make the app more responsive.
 
 ## Layers
 
-**Models:** This layer contains the data models used by the app such as UserModel.
+1. **Models:** This layer contains the data models used by the app such as UserModel.
 
-**ViewModels:** This layer contains the view models(UserViewModel, UserDetailsViewModel, and UserTableViewCellViewModal) that are used to bind the data to the UI.
+2. **ViewModels:** This layer contains the view models(UserViewModel, UserDetailsViewModel, and UserTableViewCellViewModal) that are used to bind the data to the UI.
 
-**Views:** This layer contains the view controllers and their associated views.
+3. **Views:** This layer contains the view controllers and their associated views.
 
-**Coordinators:** This layer contains the flow coordinators(AppCoordinator and UsersCoordinator) that manage the navigation flow of the app.
+4. **Coordinators:** This layer contains the flow coordinators(AppCoordinator and UsersCoordinator) that manage the navigation flow of the app.
 
-**Services:** This layer contains the services that are used to interact with the data store (Core Data) and other external resources (e.g. APIs).
+5. **Services:** This layer contains the services that are used to interact with the data store (Core Data) and other external resources (e.g. APIs).
 
 The project also includes a set of **unit tests using mockObjects** that demonstrate how to test the different components of the app.
 
