@@ -12,7 +12,7 @@ This project is an example of how to use modern iOS development techniques to cr
 
 **RxSwift:** This is a reactive programming framework for Swift. It is used to bind the UI to the data and make the app more responsive.
 
-# Layers:
+## Layers
 
 **Models:** This layer contains the data models used by the app such as UserModel.
 
