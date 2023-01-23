@@ -1,4 +1,4 @@
-#User Management Project
+# User Management Project
 
 This project is an example of how to use modern iOS development techniques to create a user management system. The project makes use of the following technologies:
 
@@ -22,7 +22,7 @@ The project is organized into several layers:
 
 The project also includes a set of **unit tests using mockObjects** that demonstrate how to test the different components of the app.
 
-##Dependencies
+## Dependencies
 
 The project has a few dependencies that need to be installed before you can run it. These dependencies are managed using CocoaPods, so you will need to have [CocoaPods](https://cocoapods.org/) installed on your machine.
 
@@ -34,6 +34,6 @@ pod install
 
 After the dependencies are installed, you should be able to run the project in Xcode.
 
-##Contribution
+## Contribution
 
 If you have any ideas or suggestions for this project, please open an issue or pull request.
